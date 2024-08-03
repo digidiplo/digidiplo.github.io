@@ -6,7 +6,7 @@ This is pretty simple stuff so far. Downloaded VirtualBox as my ‘hypervisor vi
 
 I then had to figure out how to upload it to VirtualBox. ChatGPT recommended unzipping the file, which created an .ova file, then importing it. Again, unzipping took a while and failed. Awkwardly, I don’t think I have enough space on my little laptop to unzip the file – so I’ll leave that for tomorrow, when I can find my external hardrive (I know, I know…)
 
-I attempted Kali Linux instead, a migre 3.3GB. I found this guide helpful.
+I attempted Kali Linux instead, a migre 3.3GB. I found [this guide](https://www.kali.org/docs/virtualization/import-premade-virtualbox/) helpful.
 
 Sadly, came into more trouble. Couldn’t unzip the Kali Linux file correctly, kept getting an error. So downloaded The Unarchiver in the hopes this would fix the problem. It didn’t.
 
