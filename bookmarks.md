@@ -11,10 +11,7 @@ Online resources that I've found interesting while studying.
 ### {{ category[0] | capitalize }}
 
 {% for item in items %}
-* **[{{ item.name }}]({{ item.link }}){:target="_blank"}**
-  * *{{ item.description }}*
-  * **My thoughts**: {{ item.recommendation }}  
-  * **Tags**: {% for tag in item.tags %}{{ tag }}{% if forloop.last == false %}, {% endif %}{% endfor %}
+* **[{{ item.name }}]({{ item.link }}){:target="_blank"}** {{ item.description }}
 {% endfor %}
 {% endfor %}
 
