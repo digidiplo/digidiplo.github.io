@@ -22,6 +22,7 @@ rss: rss
 kramdown:
   syntax_highlighter_opts:
     disable: true
+  math_engine: mathjax
     
 plugins:
   - jekyll-feed
@@ -37,3 +38,5 @@ defaults:
       type: post
     values:
       tags: Other
+
+markdown: kramdown
