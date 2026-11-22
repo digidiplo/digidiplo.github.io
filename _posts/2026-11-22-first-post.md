@@ -2,7 +2,7 @@
 title: "What do background vibrations look like - building a baseline"
 # To add a post image, upload it to assets/img/ and remove the # from the next line:
 image: /assets/img/Vibrations%20across%20paper%20strata.png
-published: false
+published: true
 ---
 
 Today I did a first set of experiments to test a simple hypothesis - Can the phone distinguish ordinary activity from quiet background variation? I did nine experiments with the results showing that **yes, you can**.
