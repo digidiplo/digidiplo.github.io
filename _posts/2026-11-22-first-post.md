@@ -10,6 +10,9 @@ Today I did a first set of experiments to test a simple hypothesis - Can the pho
 I used [phyphox](https://phyphox.org/) to record my iPhone's accelerometer and it took ~100 readings per second. Across the nine experiments I did, you can see the background noise and then the large signals as I step nearby. 
 
 ![the first nine experiments](/assets/img/Screenshot 2026-11-22 at 16.45.29.png)
+
+You can see from this chart that I live right next to a v busy road. Speed limit is 40 mph and heavy trucks hurtle through it sometimes shaking the the whole room. So this is perhaps a good place to start since it will provide us with quite a few edge cases to work through. 
+
 ![steps create stronger signals](/assets/img/Screenshot 2026-11-22 at 16.41.32.png)
 
 **Key findings:**
@@ -21,6 +24,7 @@ I used [phyphox](https://phyphox.org/) to record my iPhone's accelerometer and i
 - I've seen people use WiFi to monitor an area, I wonder if that could monitor a sudden vibration.
 - Another option I've seen is where people have used invisible lasers which could always point to the floor and then measure a shift. This might be better and might look nicer too. If you had something coming out of the plug and pushing a few lasers out across the floor. I'd have to look into how complex this is.
 - With a bit of experimentation done, I'm going to look into how I could practically monitor. My assumption is that a simple plug-in device with an extension touching the carpet will be enough - but this obviously won't be possible or easy. Key questions are, how small are the accelerometers in iPhone devices? Could this be placed on the floor without looking unsightly? We'd probably need to have another plug in front of it so they don't loose a plug by filling it with this device.
+- I should test this system in various homes once I've built my prototype, and perhaps find out what the average weight of an OAP is and start dropping a dummy to the floor at different angles and ways. 
 
 **Method**
 - Used [phyphox app](https://phyphox.org/) on an iPhone 17
