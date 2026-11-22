@@ -1,6 +1,6 @@
 ---
 short: true
-date: 2026-12-01 18:16
+date: 2026-11-26 15:30
 ---
 
-ChatGPT has built me a labelling tool as I run experiments and test actions.
+Did 9 experiments and it does look possible to monitor footsteps via iPhone acceleromater.
