@@ -22,6 +22,7 @@ I used [phyphox](https://phyphox.org/) to record my iPhone's accelerometer and i
 **Further thoughts**
 - I've seen people use WiFi to monitor an area, I wonder if that could monitor a sudden vibration.
 - Another option I've seen is where people have used invisible lasers which could always point to the floor and then measure a shift. This might be better and might look nicer too. If you had something coming out of the plug and pushing a few lasers out across the floor. I'd have to look into how complex this is.
+- With a bit of experimentation done, I'm going to look into how I could practically monitor. My assumption is that a simple plug-in device with an extension touching the carpet will be enough - but this obviously won't be possible or easy. Key questions are, how small are the accelerometers in iPhone devices? Could this be placed on the floor without looking unsightly? We'd probably need to have another plug in front of it so they don't loose a plug by filling it with this device.
 
 **Method**
 - Used [phyphox app](https://phyphox.org/) on an iPhone 17
