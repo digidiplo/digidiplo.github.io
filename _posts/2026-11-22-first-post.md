@@ -9,10 +9,8 @@ Today I did a first set of experiments to test a simple hypothesis - Can the pho
 
 I used [phyphox](https://phyphox.org/) to record my iPhone's accelerometer and it took ~100 readings per second. Across the nine experiments I did, you can see the background noise and then the large signals as I step nearby. 
 
-<div class="pair">
-  <img src="/assets/img/Screenshot 2026-11-22 at 16.45.29.png" alt="the first nine experiments">
-  <img src="/assets/img/Screenshot 2026-11-22 at 16.41.32.png" alt="steps create stronger signals">
-</div>
+![the first nine experiments](/assets/img/Screenshot 2026-11-22 at 16.45.29.png)
+![steps create stronger signals](/assets/img/Screenshot 2026-11-22 at 16.41.32.png)
 
 **Key findings:**
 1. Stepping nearby (0.5 m) the iPhone produces a large signals against the background noise.
