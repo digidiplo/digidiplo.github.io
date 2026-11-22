@@ -1,0 +1,27 @@
+---
+layout: default
+title: Updates
+permalink: /updates/
+---
+{%- comment -%}
+  Every short update, newest first, with a dated line between days.
+{%- endcomment -%}
+{%- assign shorts = site.posts | where_exp: "item", "item.short == true" %}
+{%- assign days = shorts | group_by_exp: "item", "item.date | date: '%Y-%m-%d'" %}
+<div class="container note-page">
+  <a class="back" href="{{ '/' | relative_url }}">Home</a>
+  <h1 class="page-title">Short updates</h1>
+  {%- if shorts.size > 0 %}
+  {%- for day in days %}
+  {%- assign first = day.items | first %}
+  <section class="day">
+    <h2 class="day-line"><time datetime="{{ day.name }}">{{ first.date | date: '%A %-d %B %Y' }}</time></h2>
+    {%- for s in day.items %}
+    {% include note.html note=s body=s.content hide_date=true %}
+    {%- endfor %}
+  </section>
+  {%- endfor %}
+  {%- else %}
+  <p class="empty-note">No short updates yet.</p>
+  {%- endif %}
+</div>

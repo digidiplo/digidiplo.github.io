@@ -1,0 +1,12 @@
+{%- comment -%}
+  Lets image and file links in a post work however the path is written:
+  "/assets/img/x.png", "assets/img/x.png" or "../assets/img/x.png".
+  Pass the rendered post text as html=...
+{%- endcomment -%}
+{{- include.html
+  | replace: 'src="../assets/', 'src="/assets/'
+  | replace: 'src="./assets/', 'src="/assets/'
+  | replace: 'src="assets/', 'src="/assets/'
+  | replace: 'href="../assets/', 'href="/assets/'
+  | replace: 'href="./assets/', 'href="/assets/'
+  | replace: 'href="assets/', 'href="/assets/' -}}

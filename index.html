@@ -23,6 +23,7 @@ layout: default
       {%- if p.github and p.github != "" %}<a href="{{ p.github | escape }}">GitHub</a>{% endif %}
       {%- if p.email and p.email != "" %}<a href="mailto:{{ p.email | escape }}">Email</a>{% endif %}
     </p>
+    {%- include latest-updates.html %}
   </div>
 </header>
 
@@ -34,8 +35,9 @@ layout: default
 
 <section class="container" id="posts">
   <h2 class="ctitle">Posts</h2>
-  {%- if site.posts.size > 0 %}
-  {%- for post in site.posts %}
+  {%- assign long_posts = site.posts | where_exp: "item", "item.short != true" %}
+  {%- if long_posts.size > 0 %}
+  {%- for post in long_posts %}
   <article class="entry{% if post.image and post.image != '' %} has-image{% endif %}">
     <div class="entry-text">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %B %Y' }}</time>

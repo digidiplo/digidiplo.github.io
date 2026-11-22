@@ -1,0 +1,25 @@
+{%- comment -%}
+  One short update: your picture or initials, with the text in a speech bubble.
+  Pass the post as note=... and its rendered text as body=...
+  Add hide_date=true where a day divider already shows the date.
+{%- endcomment -%}
+{%- assign p = site.data.profile -%}
+<article class="note">
+  <div class="note-avatar" aria-hidden="true">
+    {%- if p.photo and p.photo != "" -%}
+    <img src="{{ p.photo | relative_url }}" alt="">
+    {%- else -%}
+    <span>{{ p.initials | escape }}</span>
+    {%- endif -%}
+  </div>
+  <div class="bubble bubble-left">
+    {%- assign clock = include.note.date | date: '%H:%M' %}
+    <p class="bubble-top"><a class="bubble-label" href="{{ include.note.url | relative_url }}">Update</a>
+      {%- if include.hide_date %}
+      {%- if clock != '00:00' %}<time datetime="{{ include.note.date | date_to_xmlschema }}">{{ clock }}</time>{% endif %}
+      {%- else %}
+      <a href="{{ include.note.url | relative_url }}"><time datetime="{{ include.note.date | date_to_xmlschema }}">{{ include.note.date | date: '%-d %B %Y' }}{% if clock != '00:00' %}, {{ clock }}{% endif %}</time></a>
+      {%- endif %}</p>
+    <div class="bubble-text">{% include fix-paths.html html=include.body %}</div>
+  </div>
+</article>

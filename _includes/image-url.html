@@ -1,12 +1,17 @@
 {%- comment -%}
-  Turns an image path from a post into a working link.
-  Accepts "/assets/img/name.jpg", "assets/img/name.jpg", or a full https:// address.
-  Pass absolute=true for the full address used in link previews.
+  Turns an image path from a post's settings into a working link.
+  Accepts "/assets/img/name.jpg", "assets/img/name.jpg", "../assets/img/name.jpg",
+  or a full https:// address. Pass absolute=true for the full address used in
+  link previews.
 {%- endcomment -%}
-{%- if include.src contains '://' -%}
-{{ include.src }}
-{%- elsif include.absolute -%}
-{{ include.src | absolute_url }}
+{%- assign src = include.src | strip -%}
+{%- if src contains '://' -%}
+{{ src }}
 {%- else -%}
-{{ include.src | relative_url }}
+{%- assign src = src | replace: '../', '' | replace: './', '' -%}
+{%- if include.absolute -%}
+{{ src | absolute_url }}
+{%- else -%}
+{{ src | relative_url }}
+{%- endif -%}
 {%- endif -%}

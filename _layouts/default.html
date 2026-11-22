@@ -2,7 +2,9 @@
 <html lang="{{ site.lang | default: 'en-GB' }}">
 <head>
   {%- assign p = site.data.profile -%}
-  {%- if page.title -%}
+  {%- if page.short -%}
+    {%- capture page_title -%}Update, {{ page.date | date: '%-d %B %Y' }} · {{ p.name }}{%- endcapture -%}
+  {%- elsif page.title -%}
     {%- capture page_title -%}{{ page.title }} · {{ p.name }}{%- endcapture -%}
   {%- else -%}
     {%- assign page_title = p.name -%}

@@ -1,9 +1,9 @@
 # Dan Jones: blog
 
 A light blog for GitHub Pages at https://digidiplo.github.io. The homepage has
-a short introduction and your posts, newest first. Each post is a text file in
-`_posts/`. When you add one, GitHub puts it on the homepage and gives it its
-own page.
+a short introduction, your latest short update in a speech bubble, and your
+posts, newest first. Each post or update is a text file in `_posts/`. When you
+add one, GitHub puts it on the site within a couple of minutes.
 
 | To change | Edit |
 |---|---|
@@ -25,7 +25,34 @@ own page.
 5. Open the **Actions** tab. When the build shows a green tick, the site is
    live.
 
-## Post an update
+## Post a short update
+
+A short update is a sentence or two with no title. The newest one appears in
+the speech bubble beside your description, and the arrows step back through
+the last five. They all stay on the Updates page (`/updates/`), grouped by
+day, and they stay out of the Posts list.
+
+1. In `_posts`, click **Add file**, then **Create new file**.
+2. Name it with the date and a word or two, for example
+   `2026-12-01-scoring.md`.
+3. Paste this and replace the text:
+
+   ```markdown
+   ---
+   short: true
+   ---
+
+   Got Claude scoring tender notices today. First run flagged 9 of 51.
+   ```
+
+4. Click **Commit changes**.
+
+Links and bold work in short updates too. For two updates on the same day, add
+a time so they appear in the right order: `date: 2026-12-01 15:30` under
+`short: true`. Use a time that has already passed, or the update stays hidden
+until the site next rebuilds after that time.
+
+## Write a post
 
 1. In the repository, open the `_posts` folder.
 2. Click **Add file**, then **Create new file**.

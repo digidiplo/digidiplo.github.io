@@ -1,0 +1,33 @@
+{%- comment -%}
+  The speech bubble beside your description on the homepage.
+  Shows your newest short update; the arrows step back through the last five.
+  To show a different number, add  bubble_count: 8  (for example) to _data/profile.yml.
+{%- endcomment -%}
+{%- assign shorts = site.posts | where_exp: "item", "item.short == true" -%}
+{%- assign show = site.data.profile.bubble_count | default: 5 -%}
+{%- if shorts.size > 0 %}
+<div class="bubble-wrap">
+  <div class="bubble bubble-hero" id="bubble">
+    <div class="bubble-items" aria-live="polite">
+      {%- for s in shorts limit: show %}
+      {%- assign clock = s.date | date: '%H:%M' %}
+      <div class="bubble-item"{% unless forloop.first %} hidden{% endunless %}>
+        <p class="bubble-top"><span class="bubble-label">{% if forloop.first %}Latest update{% else %}Update{% endif %}</span><a href="{{ s.url | relative_url }}"><time datetime="{{ s.date | date_to_xmlschema }}">{{ s.date | date: '%-d %B %Y' }}{% if clock != '00:00' %}, {{ clock }}{% endif %}</time></a></p>
+        <div class="bubble-text">{% include fix-paths.html html=s.content %}</div>
+      </div>
+      {%- endfor %}
+    </div>
+    <div class="bubble-foot">
+      {%- if shorts.size > 1 %}
+      <span class="bubble-nav">
+        <button type="button" class="bubble-newer" aria-label="Newer update" disabled>&lsaquo;</button>
+        <span class="bubble-count">1 / {% if shorts.size > show %}{{ show }}{% else %}{{ shorts.size }}{% endif %}</span>
+        <button type="button" class="bubble-older" aria-label="Older update">&rsaquo;</button>
+      </span>
+      {%- endif %}
+      <a class="bubble-all" href="{{ '/updates/' | relative_url }}">All updates</a>
+    </div>
+  </div>
+</div>
+<script src="{{ '/assets/bubble.js' | relative_url }}" defer></script>
+{%- endif %}

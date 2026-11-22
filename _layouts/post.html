@@ -1,6 +1,13 @@
 ---
 layout: default
 ---
+{%- if page.short %}
+<div class="container note-page">
+  <a class="back" href="{{ '/updates/' | relative_url }}">All updates</a>
+  <h1 class="sr-only">Update, {{ page.date | date: '%-d %B %Y' }}</h1>
+  {% include note.html note=page body=content %}
+</div>
+{%- else %}
 <article class="container post">
   <header class="post-header">
     <a class="back" href="{{ '/' | relative_url }}#posts">All posts</a>
@@ -19,17 +26,28 @@ layout: default
   {%- endif %}
 
   <div class="prose">
-    {{ content }}
+    {% include fix-paths.html html=content %}
   </div>
 
-  {%- if page.previous or page.next %}
-  <nav class="post-nav" aria-label="More posts">
-    {%- if page.previous %}
-    <div><span class="label">Older</span><a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a></div>
+  {%- comment -%} Older and newer long posts, skipping short updates. {%- endcomment -%}
+  {%- assign long_posts = site.posts | where_exp: "item", "item.short != true" %}
+  {%- assign newer_post = nil %}
+  {%- assign older_post = nil %}
+  {%- for item in long_posts %}
+    {%- if item.url == page.url %}
+      {%- unless forloop.first %}{% assign newer_index = forloop.index0 | minus: 1 %}{% assign newer_post = long_posts[newer_index] %}{% endunless %}
+      {%- unless forloop.last %}{% assign older_index = forloop.index0 | plus: 1 %}{% assign older_post = long_posts[older_index] %}{% endunless %}
     {%- endif %}
-    {%- if page.next %}
-    <div class="next"><span class="label">Newer</span><a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a></div>
+  {%- endfor %}
+  {%- if older_post or newer_post %}
+  <nav class="post-nav" aria-label="More posts">
+    {%- if older_post %}
+    <div><span class="label">Older</span><a href="{{ older_post.url | relative_url }}">{{ older_post.title | escape }}</a></div>
+    {%- endif %}
+    {%- if newer_post %}
+    <div class="next"><span class="label">Newer</span><a href="{{ newer_post.url | relative_url }}">{{ newer_post.title | escape }}</a></div>
     {%- endif %}
   </nav>
   {%- endif %}
 </article>
+{%- endif %}
