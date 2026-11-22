@@ -4,17 +4,15 @@
 
 name: Dan Jones
 initials: DJ
-# Upload a square photo to assets/img/, then set: photo: "/assets/img/profile.jpg"
-photo: ""
+photo: "/assets/img/23440819.jpeg"
 
 tagline: >-
-  Getting trustworthy AI from the lab to the front line.
+  Getting machines working for those can't do it themselves.
 role: >-
-  Go-to-Market & Business Development Lead, Oxford Dynamics · Harwell, UK
+  Go-to-Market
 intro: >-
-  I work on how good technology gets from the lab to the people who need it,
-  mostly in UK defence. I'm also learning to build, so I run small experiments
-  with AI tools and post updates here as I go.
+  I work on how good technology gets from the lab to the people who need it. I'm also learning to build, so I run small experiments
+  with AI tools and post updates here as I go. Currently working on something I wish 
 
 # Shown in search results and link previews.
 description: >-
