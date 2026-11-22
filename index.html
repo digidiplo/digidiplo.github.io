@@ -1,0 +1,56 @@
+---
+layout: default
+---
+{%- assign p = site.data.profile -%}
+<header class="container hero">
+  <div class="ring">
+    {%- if p.photo and p.photo != "" %}
+    <img src="{{ p.photo | relative_url }}" alt="{{ p.name | escape }}">
+    {%- else %}
+    <span class="initials" aria-hidden="true">{{ p.initials | escape }}</span>
+    {%- endif %}
+  </div>
+  <div class="hero-text">
+    <h1>{{ p.name | escape }}</h1>
+    {%- if p.tagline and p.tagline != "" %}
+    <p class="tagline">{{ p.tagline | escape }}</p>
+    {%- endif %}
+    {%- if p.role and p.role != "" %}
+    <p class="role">{{ p.role | escape }}</p>
+    {%- endif %}
+    <p class="links">
+      {%- if p.linkedin and p.linkedin != "" %}<a href="{{ p.linkedin | escape }}">LinkedIn</a>{% endif %}
+      {%- if p.github and p.github != "" %}<a href="{{ p.github | escape }}">GitHub</a>{% endif %}
+      {%- if p.email and p.email != "" %}<a href="mailto:{{ p.email | escape }}">Email</a>{% endif %}
+    </p>
+  </div>
+</header>
+
+{%- if p.intro and p.intro != "" %}
+<div class="container intro-block">
+  <p class="intro">{{ p.intro | escape }}</p>
+</div>
+{%- endif %}
+
+<section class="container" id="posts">
+  <h2 class="ctitle">Posts</h2>
+  {%- if site.posts.size > 0 %}
+  {%- for post in site.posts %}
+  <article class="entry{% if post.image and post.image != '' %} has-image{% endif %}">
+    <div class="entry-text">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%-d %B %Y' }}</time>
+      <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
+      <p>{{ post.description | default: post.excerpt | strip_html | normalize_whitespace | truncatewords: 40 | escape }}</p>
+    </div>
+    {%- if post.image and post.image != "" %}
+    {%- capture thumb %}{% include image-url.html src=post.image %}{% endcapture %}
+    <a class="entry-thumb" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{{ thumb | strip }}" alt="" loading="lazy">
+    </a>
+    {%- endif %}
+  </article>
+  {%- endfor %}
+  {%- else %}
+  <p class="empty-note">{{ p.empty_note | default: "First post coming soon." | escape }}</p>
+  {%- endif %}
+</section>

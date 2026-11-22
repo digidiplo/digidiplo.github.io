@@ -1,0 +1,35 @@
+---
+layout: default
+---
+<article class="container post">
+  <header class="post-header">
+    <a class="back" href="{{ '/' | relative_url }}#posts">All posts</a>
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%-d %B %Y' }}</time>
+    <h1>{{ page.title | escape }}</h1>
+  </header>
+
+  {%- if page.image and page.image != "" %}
+  {%- capture cover %}{% include image-url.html src=page.image %}{% endcapture %}
+  <figure class="cover">
+    <img src="{{ cover | strip }}" alt="{{ page.image_alt | default: '' | escape }}">
+    {%- if page.image_caption and page.image_caption != "" %}
+    <figcaption>{{ page.image_caption | escape }}</figcaption>
+    {%- endif %}
+  </figure>
+  {%- endif %}
+
+  <div class="prose">
+    {{ content }}
+  </div>
+
+  {%- if page.previous or page.next %}
+  <nav class="post-nav" aria-label="More posts">
+    {%- if page.previous %}
+    <div><span class="label">Older</span><a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a></div>
+    {%- endif %}
+    {%- if page.next %}
+    <div class="next"><span class="label">Newer</span><a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a></div>
+    {%- endif %}
+  </nav>
+  {%- endif %}
+</article>

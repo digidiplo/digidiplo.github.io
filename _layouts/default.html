@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en-GB' }}">
+<head>
+  {%- assign p = site.data.profile -%}
+  {%- if page.title -%}
+    {%- capture page_title -%}{{ page.title }} · {{ p.name }}{%- endcapture -%}
+  {%- else -%}
+    {%- assign page_title = p.name -%}
+  {%- endif -%}
+  {%- assign description = page.description | default: page.excerpt | default: p.description | strip_html | normalize_whitespace | truncate: 180 -%}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ page_title | escape }}</title>
+  <meta name="description" content="{{ description | escape }}">
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ description | escape }}">
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  {%- assign share_image = page.image | default: p.photo -%}
+  {%- if share_image and share_image != "" %}
+  {%- capture share_url %}{% include image-url.html src=share_image absolute=true %}{% endcapture %}
+  <meta property="og:image" content="{{ share_url | strip }}">
+  <meta name="twitter:card" content="summary_large_image">
+  {%- endif %}
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+  <link rel="icon" type="image/svg+xml" href="{{ '/assets/img/favicon.svg' | relative_url }}">
+  {%- if page.url == '/' %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": {{ p.name | jsonify }},
+    "url": {{ '/' | absolute_url | jsonify }},
+    "description": {{ p.description | jsonify }},
+    "sameAs": [{% if p.linkedin and p.linkedin != "" %}{{ p.linkedin | jsonify }}{% endif %}{% if p.linkedin and p.linkedin != "" and p.github and p.github != "" %}, {% endif %}{% if p.github and p.github != "" %}{{ p.github | jsonify }}{% endif %}]
+  }
+  </script>
+  {%- endif %}
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav id="topnav" aria-label="Main">
+    <div class="nav-inner">
+      <a class="nav-name" href="{{ '/' | relative_url }}">{{ p.name | escape }}</a>
+      <div class="nav-links">
+        {%- if p.linkedin and p.linkedin != "" %}
+        <a href="{{ p.linkedin | escape }}">LinkedIn</a>
+        {%- endif %}
+        {%- if p.github and p.github != "" %}
+        <a href="{{ p.github | escape }}">GitHub</a>
+        {%- endif %}
+      </div>
+    </div>
+  </nav>
+
+  <main id="main">
+    {{ content }}
+  </main>
+
+  <footer>
+    <div class="container">&copy; {{ p.name | escape }}{% if p.footer_note and p.footer_note != "" %} · {{ p.footer_note | escape }}{% endif %}</div>
+  </footer>
+</body>
+</html>

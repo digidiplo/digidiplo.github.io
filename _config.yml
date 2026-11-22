@@ -1,0 +1,24 @@
+# GitHub Pages settings for the repository digidiplo.github.io.
+url: "https://digidiplo.github.io"
+baseurl: ""
+lang: en-GB
+timezone: Europe/London
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+permalink: /:year/:month/:day/:title/
+future: false
+strict_front_matter: true
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
