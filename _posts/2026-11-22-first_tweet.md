@@ -1,5 +1,6 @@
 ---
 short: true
+date: 2026-12-01 18:16
 ---
 
-Did 9 experiments and it does look possible to monitor footsteps via iPhone acceleromater.
+ChatGPT has built me a labelling tool as I run experiments and test actions.
