@@ -18,7 +18,9 @@ It contains
 
 The challenges with this though is that it has lots of caveats around not putting it near to curtains or other objects that move quickly. This is making me think it'll be important to have some sort of multi-sensor fusion involved somewhere. But this would need to be way down the road.
 
-My god, I hadn't fully thought through things like having it in a bedroom - where people frequently flop onto the bed - may be a challenge. 
+My god, I hadn't fully thought through things like having it in a bedroom - where people frequently flop onto the bed - may be a challenge. BUT the more I look into it (hands-up, with ChatGPT's help), the more I see that this has been proven as a possibility again and again, and there's even [a GitHub repo](https://github.com/IoT-gamer/iwr6843aop_fall_detection_visualizer). This has shifted my hypothesis from *"Can radar detect a fall?"* to *"Can I build a single-sensor bedroom system that detects genuine falls reliably without repeatedly disturbing people going about their normal lives?"*
+
+Since there's open-source software, this lowers the barrier of entry to others - but since no one has done this yet, maybe it's time someone did. 
 
 **Further thoughts**
 - I'm not going to abandon the vibration idea - I think there's something there, and means it can be discreet too, since it will be connected to the floor and not creating another ugly device on the ceiling. Maybe the vibrations will be better at picking up falls in a larger space (bigger than 3x3x3)? 
@@ -27,3 +29,6 @@ My god, I hadn't fully thought through things like having it in a bedroom - wher
 
 **What else I've been up to**
 - I've registered for an event to meet some CTOs and test my idea with them. I'd ideally like to take with me some real-world research and tests I've run so I can explore it with them, and show that's not just an idea I'm playing with.
+
+**Next steps**
+- I should explore who else has done similar research and absorb what I can learn from them. I've 
