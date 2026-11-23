@@ -1,7 +1,7 @@
 ---
 title: "Understanding what's already available"
 image: /assets/img/Tactile 1990s Zine Gadget Collage.png
-published: false
+published: true
 ---
 
 I know this is the wrong way round to look at it, but I've started to buy some components to make the MVP. What I'm realising is that measuring vibrations may not be the best way to tackle this problem. 
