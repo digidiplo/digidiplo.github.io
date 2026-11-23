@@ -22,6 +22,13 @@ My god, I hadn't fully thought through things like having it in a bedroom - wher
 
 Since there's open-source software, this lowers the barrier of entry to others - but since no one has done this yet, maybe it's time someone did. 
 
+**Texas Instruments**
+IT publish both a [fall-detection experiment])https://dev.ti.com/tirex/explore/content/radar_toolbox_2_20_00_05/docs/experiments/Fall_Detection_Using_mmWave.html) and a reference design allowing the reduction of radar hardware costs. So there's a route here with a COTS prototype.
+
+So what this is leading me to believe is that for the MVP I need a rules-based, deterministic model - something that I can understand, test and explain quickly.
+
+I think for now, I'll use TI's sensing tech and then one day include some ML and multi-sensor fusion to enhance the capability.
+
 **Further thoughts**
 - I'm not going to abandon the vibration idea - I think there's something there, and means it can be discreet too, since it will be connected to the floor and not creating another ugly device on the ceiling. Maybe the vibrations will be better at picking up falls in a larger space (bigger than 3x3x3)? 
 - I do wonder if both approaches would work - doing some multi-sensor fusion that looks at the radar and the vibrations to double-check if a fall has occurred before raising an alarm to the care provider or family member.
